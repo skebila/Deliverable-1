@@ -44,7 +44,7 @@ public abstract class Game
     }
 
     /**
-     * @return the players of this game represented as (toString) in the future implementation
+     * @return the players of this game as an ArrayList of (Players) in the future implementation
      */
     public ArrayList <Player> getPlayers()
     {
