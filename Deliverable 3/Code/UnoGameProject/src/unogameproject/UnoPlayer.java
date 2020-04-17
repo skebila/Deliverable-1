@@ -41,10 +41,6 @@ public class UnoPlayer {
         return playerNumber;
     }
 
-    public void setPlayerNumber(int playerNumber) {
-        this.playerNumber = playerNumber;
-    }
-
     public ArrayList<UnoCard> getHand() {
         return hand;
     }
@@ -58,17 +54,15 @@ public class UnoPlayer {
 
     //PLAY CARD
     public boolean playCard(int cardNumberToPlay, UnoPile pileToPlaceCard) {
-        int cardNumber = cardNumberToPlay - 1;
-        if(cardNumber >= 0 && cardNumber < hand.size()) {
-            if(pileToPlaceCard.placeCard(hand.get(cardNumber))) {
-                hand.remove(cardNumber);
+        if(cardNumberToPlay < 0 || cardNumberToPlay > hand.size()) {
+            return false;
+        } else {
+            if(pileToPlaceCard.placeCard(hand.get(cardNumberToPlay -1))) {
+                hand.remove(cardNumberToPlay -1);
                 return true;
             }
             return false;
         }
-        return false;
-
-
     }
 
     // DRAW CARDS
@@ -90,14 +84,8 @@ public class UnoPlayer {
         } else {
             StringBuilder sb = new StringBuilder();
 
-
             sb.append("---PLAYER---" + playerNumber + "------MAKE------YOUR------MOVE----------------------------------------");
             sb.append("\n");
-            sb.append("_____________________"+ "PICK A CARD TO PLACE ON THE PILE" +"______________________________");
-            sb.append("\n");
-            sb.append("_______________________"+ "OR PRINT Q TO LEAVE THE GAME" +"________________________________");
-            sb.append("\n");
-
             sb.append("\n");
 
             for(int i = 0; i < hand.size(); i++) {
