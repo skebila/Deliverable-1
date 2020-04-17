@@ -2,7 +2,7 @@
 package unogameproject;
 
 
-public class UnoCard{
+public class UnoCard {
     /**
      *  Card Factory For Using In UnoCards |UnoCards.createDeck()| method
      *  to retrieve |ArrayList<UnoCard>|
@@ -155,20 +155,23 @@ public class UnoCard{
      *  CHECK IF CARD CAN BE PLAYED (PLACED ON A PILE)
      */
     public boolean canBePlayed(UnoCard cardToCheck) {
-        if(cardToCheck.isOrdinary()) {
-            if(this.intValue() == cardToCheck.intValue() || this.hasSameColor(cardToCheck)) {
-                return true;
-            }
-            return false;
-        } else if(cardToCheck.isAction()) {
-            if(this.hasSameColor(cardToCheck)) {
-                return true;
-            }
-            return false;
-        } else if(cardToCheck.isWild()) {
+        if (this.isWild() || cardToCheck.isWild()) {
             return true;
+        } else if (this.isAction() && cardToCheck.isAction()) {
+            return this.hasSameColor(cardToCheck);
+        } else if(this.isAction() && cardToCheck.isOrdinary()) {
+            return this.hasSameColor(cardToCheck);
+        } else if(this.isOrdinary() && cardToCheck.isAction()) {
+            return this.hasSameColor(cardToCheck);
+        } else if(this.isOrdinary() && cardToCheck.isOrdinary()) {
+            if(this.intValue() == cardToCheck.intValue()) {
+                return true;
+            } else {
+                return this.hasSameColor(cardToCheck);
+            }
+        } else {
+            return false;
         }
-        return false;
     }
 
 
