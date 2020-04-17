@@ -47,18 +47,23 @@ public class Main {
 
                 // EXIT THIS LOOP OF THE USER HAS CHOSEN TO LEAVE OR SKIP
                 if(processUserInput()) {
+                    if(userInput.equals("")) {
+                        UnoGame.drawOneCard();
+                    }
                     break;
                 }
-                if(inputIsNumber()) {
-                    if(UnoGame.makeMove(inputAsNumber())) {
-                        break;
-                    }
+                if(!inputIsNumber()) {
+                    System.out.println("Invalid input.");
+                    continue;
+                }
+                if(UnoGame.makeMove(inputAsNumber())) {
+                    break;
                 }
             }
         }
         System.out.println("SCORE");
 
-//        game.showScore();
+        UnoGame.showScore();
         UnoGame.endGame();
     }
 
