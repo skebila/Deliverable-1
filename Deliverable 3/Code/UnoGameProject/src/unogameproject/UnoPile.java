@@ -27,9 +27,11 @@ public class UnoPile {
     // PLACE CARD
     public static boolean placeCard(UnoCard cardToPlace) {
         if(cardToPlace.canBePlayed(pileCard)) {
-            System.out.println("Card " + cardToPlace.toString() + " was placed on the pile...");
+            System.out.println("Card " + cardToPlace.toString() + " was placed on the pile.");
             pileCard = cardToPlace;
+            return true;
         }
+        System.out.println("Card wasn't placed on the pile.");
         return false;
     }
 
@@ -37,13 +39,12 @@ public class UnoPile {
         return pileCard;
     }
 
-    public void printPile() {
+    public static void printPile() {
         if(pileCard == null) {
             System.out.println("NO PILE CARD EXCEPTION");
         } else {
             StringBuilder sb = new StringBuilder();
 
-            sb.append("_______________________"+ "OR PRINT Q TO EXIT THE GAME" +"_________________________________");
             sb.append("\n");
 
                 sb.append("                                     ---------- ");
@@ -55,6 +56,7 @@ public class UnoPile {
                 sb.append("                                    | -" + pileCard.getValue() + "- |");
             sb.append("\n");
                 sb.append("                                     ---------- ");
+            sb.append("\n");
 
             System.out.println(sb.toString());
         }
