@@ -146,6 +146,17 @@ public class UnoGame {
             players.get(i).drawCards(deckToDrawFrom, 7);
         }
     }
+
+    public static boolean makeMove(int cardToPlay) {
+        if(playerToMakeNextMove.playCard(cardToPlay, pile)) {
+            System.out.println("Card was played.");
+            return true;
+        }
+        System.out.println("Card wasn't played");
+        return false;
+    }
+
+
     //
     public static int LowerScoreNumber() {
         int score = Integer.MAX_VALUE;
@@ -169,11 +180,10 @@ public class UnoGame {
         }
     }
 
-    public static boolean makeMove(int cardToPlay) {
-        if(playerToMakeNextMove.playCard(cardToPlay, pile)) {
-            return true;
+    public static void drawOneCard(){
+        if(deck.getSize() > 0) {
+            playerToMakeNextMove.drawCards(deck,1);
         }
-        return false;
     }
 
     public static void unsetPlayer() {
@@ -191,6 +201,10 @@ public class UnoGame {
     public static boolean checkWinCondition() {
         if(deck.getSize() == 0) {
             System.out.println("The deck is empty, stop the game.");
+            return true;
+        }
+        if(players.size() == 1) {
+            System.out.println("Only 1 player left.");
             return true;
         }
         for(UnoPlayer possibleWinner : players) {
@@ -216,35 +230,4 @@ public class UnoGame {
         gameDirection = true;
     }
 
-    //------------------------GETTERS_AND SETTERS-------------------------//
-
-
-    public List<UnoPlayer> getPlayers() {
-        return players;
-    }
-
-    public int getNumberOfPlayers() {
-        return numberOfPlayers;
-    }
-
-    public void setNumberOfPlayers(int numberOfPlayers) {
-        this.numberOfPlayers = numberOfPlayers;
-    }
-
-    public boolean isGameDirection() {
-        return gameDirection;
-    }
-
-    public void setGameDirection(boolean gameDirection) {
-        this.gameDirection = gameDirection;
-    }
-
-    public static UnoDeck getDeck() {
-        return deck;
-    }
-
-    // TESTS OF CLASS FUNCTIONALITY
-    public static void main(String[] args) {
-
-    }
 }
