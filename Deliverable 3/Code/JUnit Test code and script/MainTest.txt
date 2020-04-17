@@ -1,0 +1,167 @@
+
+package unogameproject;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Ignore;
+ /*
+ *
+ * @author Zawad
+ */
+public class MainTest {
+    
+    public MainTest() {
+    }
+    
+    @Test
+    public static void setUpClass() {
+    }
+    
+    @Test
+    public static void tearDownClass() {
+    }
+    
+    @Test
+    public void setUp() {
+    }
+    
+    @Test
+    public void tearDown() {
+    }
+
+    /**
+     * Test of main method, of class Main.
+     */
+    @Test
+    public void testMain() {
+        System.out.println("main");
+        String[] args = null;
+        Main.main(args);
+       
+    }
+
+    /**
+     * Test of inputIsNumber Good method, of class Main.
+     */
+    @Test
+    public void testInputIsNumberGood() {
+        System.out.println("inputIsNumber Good");
+        Main.userInput = "10";
+        boolean expResult = true;
+        boolean result = Main.inputIsNumber();
+        assertEquals(expResult, result);
+        
+    }
+    /**
+     * Test of inputIsNumber Bad method, of class Main.
+     */
+    @Test
+    public void testInputIsNumberBad() {
+        System.out.println("inputIsNumber Bad");
+        Main.userInput = "a";
+        boolean expResult = false;
+        boolean result = Main.inputIsNumber();
+        assertEquals(expResult, result);
+        
+    }
+    /**
+     * Test of inputIsNumberBoundary method, of class Main.
+     */
+    @Test
+    public void testInputIsNumberBoundary() {
+        System.out.println("inputIsNumber Boundary");
+        Main.userInput = "2";
+        boolean expResult = true;
+        boolean result = Main.inputIsNumber();
+        assertEquals(expResult, result);
+        
+    }
+
+    /**
+     * Test of inputAsNumber Good test method, of class Main.
+     */
+    @Test
+    public void testInputAsNumberGood() {
+        System.out.println("inputAsNumber Good");
+        Main.userInput = "10";
+        int expResult =10;
+        int result = Main.inputAsNumber();
+        assertEquals(expResult, result);
+        
+    }
+    /**
+     * Test of inputAsNumber Bad test method, of class Main.
+     */
+    @Test
+    public void testInputAsNumberBad() {
+        System.out.println("inputAsNumber Bad test");
+        Main.userInput = "abc";
+        int expResult =-1;
+        int result = Main.inputAsNumber();
+        assertEquals(expResult, result);
+        
+    }
+/**
+     * Test of inputAsNumber Bad test method, of class Main.
+     */
+    @Test
+    public void testInputAsNumberBoundary() {
+        System.out.println("inputAsNumber Boudnary test");
+        Main.userInput = "1";
+        int expResult =1;
+        int result = Main.inputAsNumber();
+        assertEquals(expResult, result);
+        
+    }
+
+    /**
+     * Test of processUserInput Boundary test method, of class Main.
+     */
+    @Test
+    public void testProcessUserInputGood() {
+        System.out.println("ProcessUserInput Good test");
+        Main.userInput = "q";        
+        boolean expResult = true;
+        boolean result = Main.processUserInput();
+        assertEquals(expResult, result);
+        Main.userInput = "";        
+        expResult = true;
+        result = Main.processUserInput();
+        assertEquals(expResult, result);
+        
+    }
+        /**
+     * Test of processUserInput Bad test method, of class Main.
+     */
+    @Test
+    public void testProcessUserInputBad() {
+        System.out.println("ProcessUserInput Bad test");
+        Main.userInput = "b";        
+        boolean expResult = false;
+        boolean result = Main.processUserInput();
+        assertEquals(expResult, result);
+        Main.userInput = "qw";        
+        expResult = false;
+        result = Main.processUserInput();
+        assertEquals(expResult, result);
+    }
+        /**
+     * Test of processUserInput Boundary test method, of class Main.
+     */
+    @Test
+    public void testProcessUserInputBoundary() {
+        System.out.println("ProcessUserInput Boundary test");
+        Main.userInput = "q";        
+        boolean expResult = true;
+        boolean result = Main.processUserInput();
+        assertEquals(expResult, result);
+        Main.userInput = "";        
+        expResult = true;
+        result = Main.processUserInput();
+        assertEquals(expResult, result);
+    }
+}
