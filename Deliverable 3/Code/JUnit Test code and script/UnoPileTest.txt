@@ -1,0 +1,138 @@
+
+package unogameproject;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Ignore;
+
+/**
+ *
+ * @author User
+ */
+public class UnoPileTest {
+    
+    public UnoPileTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    /**
+     * Test of getInstance method, of class UnoPile.
+     */
+    @Ignore
+    public void testGetInstance() {
+        System.out.println("getInstance");
+        
+        UnoCard.NUMBERS num1 = UnoCard.NUMBERS.ZERO;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard card = UnoCard.getOrdinaryCard(num1, col1);
+        
+        
+        UnoPile result = UnoPile.getInstance(card);
+        assertNotNull(result);
+        
+    }
+
+    /**
+     * Test of placeCardGood method, of class UnoPile.
+     */
+    @Ignore
+    public void testPlaceCardGood() {
+        System.out.println("placeCardgood");
+        UnoCard.NUMBERS num1 = UnoCard.NUMBERS.ZERO;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard cardToPlace = UnoCard.getOrdinaryCard(num1, col1);
+        UnoCard.NUMBERS num2 = UnoCard.NUMBERS.FIVE;
+        UnoCard.COLORS col2 = UnoCard.COLORS.YELLOW;
+        UnoCard cardOnPile = UnoCard.getOrdinaryCard(num2, col2);
+        
+        UnoPile.getInstance(cardOnPile);
+        boolean expResult = true;
+        boolean result = UnoPile.placeCard(cardToPlace);
+        assertEquals(expResult, result);
+        
+    }
+    /**
+     * Test of placeCardbad method, of class UnoPile.
+     */
+    @Ignore
+    public void testPlaceCardBadd() {
+        System.out.println("placeCardbad");
+        UnoCard.NUMBERS num1 = UnoCard.NUMBERS.ZERO;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard cardToPlace = UnoCard.getOrdinaryCard(num1, col1);
+        UnoCard.NUMBERS num2 = UnoCard.NUMBERS.FIVE;
+        UnoCard.COLORS col2 = UnoCard.COLORS.RED;
+        UnoCard cardOnPile = UnoCard.getOrdinaryCard(num2, col2);
+        
+        UnoPile.getInstance(cardOnPile);
+        boolean expResult = false;
+        boolean result = UnoPile.placeCard(cardToPlace);
+        assertEquals(expResult, result);
+        
+    }
+
+    /**
+     * Test of getPileCard method, of class UnoPile.
+     */
+    @Ignore
+    public void testGetPileCard() {
+        System.out.println("getPileCard");
+        UnoCard.NUMBERS num1 = UnoCard.NUMBERS.ZERO;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard cardOnPile = UnoCard.getOrdinaryCard(num1, col1);
+        
+        UnoPile instance = UnoPile.getInstance(cardOnPile);
+        
+        UnoCard result = instance.getPileCard();
+        assertNotNull(result);
+        
+    }
+
+    /**
+     * Test of printPileBad method, of class UnoPile.
+     */
+    @Ignore
+    public void testPrintPileGood() {
+        System.out.println("printPileGood");
+        
+        UnoCard.NUMBERS num1 = UnoCard.NUMBERS.ZERO;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard cardOnPile = UnoCard.getOrdinaryCard(num1, col1);
+        
+        UnoPile.getInstance(cardOnPile);
+        UnoPile.printPile();
+        String result = "Prints a string representation of the UnoPile";
+        assertTrue(result,true);
+        
+    }
+    
+    /**
+     * Test of printPile method, of class UnoPile.
+     */
+    @Test
+    public void testPrintPileBad() {
+        System.out.println("printPileBad");
+        UnoPile.printPile();
+        
+    }
+    
+}

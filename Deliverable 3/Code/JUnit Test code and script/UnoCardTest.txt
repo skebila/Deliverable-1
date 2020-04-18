@@ -1,0 +1,324 @@
+package unogameproject;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Ignore;
+
+/**
+ *
+ * @author Zawad
+ */
+public class UnoCardTest {
+    
+    public UnoCardTest() {
+    }
+    
+    @Ignore
+    public static void setUpClass() {
+    }
+    
+    @Ignore
+    public static void tearDownClass() {
+    }
+    
+    @Ignore
+    public void setUp() {
+    }
+    
+    @Ignore
+    public void tearDown() {
+    }
+
+    /**
+     * Test of getOrdinaryCard Not Null method, of class UnoCard.
+     */
+    @Ignore
+    public void testGetOrdinaryCardNotNull() {
+        System.out.println("getOrdinaryCard Not Null");
+        
+        UnoCard.NUMBERS num1 = UnoCard.NUMBERS.ZERO;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard result = UnoCard.getOrdinaryCard(num1, col1);
+        assertNotNull(result);
+        
+    }
+
+    /**
+     * Test of getActionCard method, of class UnoCard.
+     */
+    @Ignore
+    public void testGetActionCardNotNull() {
+        System.out.println("getActionCard Not Null");
+        UnoCard.ACTIONS act1 = UnoCard.ACTIONS.STOP;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard result = UnoCard.getActionCard(act1, col1);
+        assertNotNull(result);
+    }
+
+    /**
+     * Test of getWildCard method, of class UnoCard.
+     */
+    @Ignore
+    public void testGetWildCardNotNull() {
+        System.out.println("getWildCard Not Null");
+        UnoCard.WILD act1 = UnoCard.WILD.COLOR;
+        UnoCard result = UnoCard.getWildCard(act1);
+        assertNotNull(result);
+    }
+/**
+     * Test of isOrdinary Good method, of class UnoCard.
+     */
+    @Ignore
+    public void testIsOrdinaryGood() {
+        System.out.println("is Ordinary");
+        UnoCard.NUMBERS num1 = UnoCard.NUMBERS.ZERO;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getOrdinaryCard(num1, col1);
+        boolean expResult = true;
+        boolean result = instance.isOrdinary();
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of isOrdinary Good method, of class UnoCard.
+     */
+    @Ignore
+    public void testIsNotOrdinary() {
+        System.out.println("is not Ordinary");
+        UnoCard.ACTIONS num1 = UnoCard.ACTIONS.STOP;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getActionCard(num1, col1);
+        boolean expResult = false;
+        boolean result = instance.isOrdinary();
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isAction good method, of class UnoCard.
+     */
+    @Ignore
+    public void testIsAction() {
+        System.out.println("isAction ");
+        UnoCard.ACTIONS act1 = UnoCard.ACTIONS.STOP;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getActionCard(act1, col1);
+        
+        boolean expResult = true;
+        boolean result = instance.isAction();
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of isAction good method, of class UnoCard.
+     */
+    @Ignore
+    public void testIsNotAction() {
+        System.out.println("isNotAction ");
+        UnoCard.NUMBERS act1 = UnoCard.NUMBERS.ONE;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getOrdinaryCard(act1, col1);
+        
+        boolean expResult = false;
+        boolean result = instance.isAction();
+        assertEquals(expResult, result);
+    }
+/**
+     * Test of isWild method, of class UnoCard.
+     */
+    @Ignore
+    public void testIsWild() {
+        System.out.println("isWild");
+        UnoCard.WILD wld1 = UnoCard.WILD.COLOR;
+        UnoCard instance = UnoCard.getWildCard(wld1);
+        
+        boolean expResult = true;
+        boolean result = instance.isWild();
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of isWild method, of class UnoCard.
+     */
+    @Ignore
+    public void testIsNotWild() {
+        System.out.println("isNotWild");
+        UnoCard.ACTIONS act1 = UnoCard.ACTIONS.STOP;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getActionCard(act1, col1);
+        
+        
+        boolean expResult = false;
+        boolean result = instance.isWild();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of canBePlayed method, of class UnoCard.
+     */
+    @Ignore
+    public void testCanBePlayed() {
+        System.out.println("canBePlayed");
+        UnoCard.WILD wld1 = UnoCard.WILD.COLOR;
+        UnoCard cardToCheck = UnoCard.getWildCard(wld1);
+         
+        
+        UnoCard.ACTIONS act1 = UnoCard.ACTIONS.STOP;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getActionCard(act1, col1);
+        boolean expResult = true;
+        boolean result = instance.canBePlayed(cardToCheck);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of canNotBePlayed method, of class UnoCard.
+     */
+    @Ignore
+    public void testCanNotBePlayed() {
+        System.out.println("canNotBePlayed");
+        UnoCard.WILD wld1 = UnoCard.WILD.COLOR;
+        UnoCard instance = UnoCard.getWildCard(wld1);
+        
+         
+        
+        UnoCard.ACTIONS act1 = UnoCard.ACTIONS.STOP;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard cardToCheck = UnoCard.getActionCard(act1, col1);
+        boolean expResult = false;
+        boolean result = instance.canBePlayed(cardToCheck);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of hasSameColor method, of class UnoCard.
+     */
+    @Ignore
+    public void testHasSameColor() {
+        System.out.println("hasSameColor");
+        UnoCard.ACTIONS act1 = UnoCard.ACTIONS.STOP;
+        UnoCard.COLORS col1 = UnoCard.COLORS.YELLOW;
+        UnoCard cardToCheck = UnoCard.getActionCard(act1, col1);
+        UnoCard.ACTIONS act2 = UnoCard.ACTIONS.REVERSE;
+        UnoCard.COLORS col2 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getActionCard(act1, col2);
+        boolean expResult = true;
+        boolean result = instance.hasSameColor(cardToCheck);
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of hasNotSameColor method, of class UnoCard.
+     */
+    @Ignore
+    public void testHasNotSameColor() {
+        System.out.println("hasNotSameColor");
+        UnoCard.ACTIONS act1 = UnoCard.ACTIONS.STOP;
+        UnoCard.COLORS col1 = UnoCard.COLORS.RED;
+        UnoCard cardToCheck = UnoCard.getActionCard(act1, col1);
+        UnoCard.ACTIONS act2 = UnoCard.ACTIONS.REVERSE;
+        UnoCard.COLORS col2 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getActionCard(act1, col2);
+        boolean expResult = false;
+        boolean result = instance.hasSameColor(cardToCheck);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of intValueGood method, of class UnoCard.
+     */
+    @Ignore
+    public void testIntValueGood() {
+        System.out.println("intValueGood");
+        UnoCard.NUMBERS act2 = UnoCard.NUMBERS.ONE;
+        UnoCard.COLORS col2 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getOrdinaryCard(act2, col2);
+        int expResult = 1;
+        int result = instance.intValue();
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of intValueGood method, of class UnoCard.
+     */
+    @Ignore
+    public void testIntValueBad() {
+        System.out.println("intValueBad");
+        UnoCard.ACTIONS act2 = UnoCard.ACTIONS.REVERSE;
+        UnoCard.COLORS col2 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getActionCard(act2, col2);
+        
+        int expResult = -1;
+        int result = instance.intValue();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of toString method, of class UnoCard.
+     */
+    @Ignore
+    public void testToString() {
+        System.out.println("toString");
+        UnoCard.ACTIONS act2 = UnoCard.ACTIONS.REVERSE;
+        UnoCard.COLORS col2 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getActionCard(act2, col2);
+        String expResult = "A UnoCard{" +  "number=" +  UnoCard.ACTIONS.REVERSE + " " + "color=" + UnoCard.COLORS.YELLOW + '}';
+        String result = instance.toString();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getValueGood method, of class UnoCard.
+     */
+    @Ignore
+    public void testGetValueGood() {
+        System.out.println("getValueGood");
+        UnoCard.ACTIONS act2 = UnoCard.ACTIONS.REVERSE;
+        UnoCard.COLORS col2 = UnoCard.COLORS.YELLOW;
+        UnoCard instance = UnoCard.getActionCard(act2, col2);
+        String expResult = "REVERS";
+        String result = instance.getValue();
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of getValueGood method, of class UnoCard.
+     */
+    @Ignore
+    public void testGetValueBad() {
+        System.out.println("getValueBad");
+        UnoCard instance = null;
+        String expResult = " ERROR";
+        String result = instance.getValue();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getColor method, of class UnoCard.
+     */
+    @Ignore
+    public void testGetColor() {
+        System.out.println("getColor");
+        UnoCard.WILD wld1 = UnoCard.WILD.COLOR;
+        UnoCard instance = UnoCard.getWildCard(wld1);
+        
+        String expResult = "?WILD";
+        String result = instance.getColor();
+        assertEquals(expResult, result);
+        
+    }
+    /**
+     * Test of getColor method, of class UnoCard.
+     */
+    @Ignore
+    public void testGetColorError() {
+        System.out.println("getColorError");
+        
+        UnoCard instance = null;
+        
+        String expResult = "Error";
+        String result = instance.getColor();
+        System.out.println(result);
+        assertEquals(expResult, result);
+        
+    }
+    
+}

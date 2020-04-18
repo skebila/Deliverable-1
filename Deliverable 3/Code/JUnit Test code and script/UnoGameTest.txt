@@ -1,0 +1,249 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package unogameproject;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Ignore;
+
+/**
+ *
+ * @author User
+ */
+public class UnoGameTest {
+    
+    public UnoGameTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    /**
+     * Test of getInstance method, of class UnoGame.
+     */
+    @Ignore
+    public void testGetInstance() {
+        System.out.println("getInstance");
+        
+        UnoGame result = UnoGame.getInstance();
+        assertNotNull(result);
+    }
+
+    /**
+     * Test of startGame method, of class UnoGame.
+     */
+    @Ignore
+    public void testStartGame() {
+        System.out.println("startGame");
+        UnoGame.startGame();
+        
+    }
+
+    /**
+     * Test of resetFields method, of class UnoGame.
+     */
+    @Ignore
+    public void testResetFields() {
+        System.out.println("resetFields");
+        
+        UnoGame.resetFields();
+        assertNull(UnoGame.instance);
+        
+    }
+    
+    @Ignore
+    public void testCreateFields() {
+        System.out.println("createFields");
+        UnoGame.getInstance();
+        UnoGame.createFields();
+        int result = UnoGame.deck.getSize();
+        assertEquals(107,result);
+        
+    }
+
+    /**
+     * Test of endGame method, of class UnoGame.
+     */
+    @Ignore
+    public void testEndGame() {
+        System.out.println("endGame");
+        UnoGame.endGame();
+        
+        assertNull(UnoGame.instance);
+    }
+
+    /**
+     * Test of setPlayersGood method, of class UnoGame.
+     */
+    @Ignore
+    public void testSetPlayersGood() {
+        System.out.println("setPlayersGood");
+        int numberOfPlayers = 9;
+        boolean expResult = true;
+        boolean result = UnoGame.setPlayers(numberOfPlayers);
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of setPlayersBoundary method, of class UnoGame.
+     */
+    @Ignore
+    public void testSetPlayersBoundary() {
+        System.out.println("setPlayersBad");
+        int numberOfPlayers = 2;
+        boolean expResult = true;
+        boolean result = UnoGame.setPlayers(numberOfPlayers);
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of setPlayersBad method, of class UnoGame.
+     */
+    @Ignore
+    public void testSetPlayersBad() {
+        System.out.println("setPlayersBad");
+        int numberOfPlayers = 0;
+        boolean expResult = false;
+        boolean result = UnoGame.setPlayers(numberOfPlayers);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setNextPlayerToMakeMove method, of class UnoGame.
+     */
+    @Ignore
+    public void testSetNextPlayerToMakeMove() {
+        System.out.println("setNextPlayerToMakeMove");
+        UnoPlayer expResult = new UnoPlayer(2);
+        UnoGame.getInstance();
+        UnoGame.setPlayers(2);
+        
+        UnoPlayer result = UnoGame.setNextPlayerToMakeMove();
+        assertNotNull(result);
+        
+    }
+    @Ignore
+    public void testFillPlayersHands() {
+        System.out.println("Fill player hands");
+        UnoGame.getInstance();
+        UnoGame.setPlayers(2);
+        int i = UnoGame.players.get(0).hand.size();
+        assertEquals(7,i);     
+    }
+
+    /**
+     * Test of makeMove method, of class UnoGame. not done
+     */
+    @Ignore
+    public void testMakeMoveGood() {
+        System.out.println("makeMoveGood");
+        
+        UnoGame.startGame();
+        UnoGame.setPlayers(2);
+        
+        
+        boolean expResult = true;
+        //boolean result = UnoGame.makeMove(cardNumberToPlay);
+        //assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of drawOneCard method, of class UnoGame.  NOT DONE
+     */
+    @Ignore
+    public void testDrawOneCard() {
+        System.out.println("drawOneCard");
+        UnoGame.getInstance();
+        UnoGame.setPlayers(2);
+        
+        boolean expResult = true;
+        boolean result = UnoGame.drawOneCard();
+        System.out.println(result);
+        assertEquals(expResult,result);
+    }
+
+    /**
+     * Test of unsetPlayer method, of class UnoGame.
+     * called from the main class
+     */
+    @Ignore
+    public void testUnsetPlayer() {
+        System.out.println("unsetPlayer");
+        UnoGame.getInstance();
+        UnoGame.setPlayers(5);
+        System.out.println(UnoGame.numberOfPlayers);
+        UnoGame.unsetPlayer();
+        System.out.println(UnoGame.numberOfPlayers);
+        int expResult = 4;
+        assertEquals(expResult,UnoGame.players.size());
+        
+    }
+
+    /**
+     * Test of skipTurn method, of class UnoGame.
+     */
+    @Ignore
+    public void testSkipTurn() {
+        System.out.println("skipTurn");
+        UnoGame.skipTurn();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of checkWinCondition method, of class UnoGame.
+     */
+    @Ignore
+    public void testCheckWinCondition() {
+        System.out.println("checkWinCondition");
+        boolean expResult = false;
+        boolean result = UnoGame.checkWinCondition();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of showPlayerOptions method, of class UnoGame.
+     */
+    @Ignore
+    public void testShowPlayerOptions() {
+        System.out.println("showPlayerOptions");
+        UnoGame.showPlayerOptions();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of changeGameDirection method, of class UnoGame.
+     */
+    @Ignore
+    public void testChangeGameDirection() {
+        System.out.println("changeGameDirection");
+        UnoGame.getInstance();
+        UnoGame.fillPlayersHands(UnoGame.deck);
+        
+        boolean expResult = true;
+        boolean result = UnoGame.changeGameDirection();
+        assertEquals(expResult, result);
+    }
+    
+}

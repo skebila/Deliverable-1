@@ -1,0 +1,49 @@
+
+package unogameproject;
+
+import java.util.ArrayList;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Ignore;
+
+/**
+ *
+ * @author Zawad
+ */
+public class UnoCardsTest {
+    
+    public UnoCardsTest() {
+    }
+    
+    @Ignore
+    public static void setUpClass() {
+    }
+    
+    @Ignore
+    public static void tearDownClass() {
+    }
+    
+    @Ignore
+    public void setUp() {
+    }
+    
+    @Ignore
+    public void tearDown() {
+    }
+
+    /**
+     * Test of createDeck method, of class UnoCards.
+     */
+    @Test
+    public void testCreateDeck() {
+        System.out.println("createDeck");
+        
+        ArrayList<UnoCard> result = UnoCards.createDeck();
+        assertNotNull(result);
+    }
+    
+}
